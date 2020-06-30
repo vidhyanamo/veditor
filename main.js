@@ -4,7 +4,9 @@ function $All(e){return document.querySelectorAll(e);}
 /*handle each and every event of editing*/
 
 window.onload = function(){
-	$(".input").innerText = localStorage.code;
+	if(localStorage.code){
+		$(".input").innerText = localStorage.code;
+	}
 	
 	run();
 	
