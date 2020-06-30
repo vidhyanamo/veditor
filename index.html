@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>Veditor</title>
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+
+<meta charset="UTF-8">
+<meta content="#f8f8f8" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="An online HTML editing tool." name="description"/>
+<meta content="Vishesh Codes, An online HTML editing tool, online HTML editor, edit html online, visheshcodes@gmail.com, Vishesh kumar, Vishesh vishwakarma, A simple online Html editor" name="keywords"/>
+
+<link rel="stylesheet" href="icon.css">
+<link rel="stylesheet" href="main.css"/>
+</head>
+
+<body>
+<header>
+	<button id="visited" class="nbutton hb" onclick="input()">HTML</button>
+   
+	<button  class="nbutton ob" onclick="output()">Output</button>
+</header>
+
+<div class="toolbar">
+ <div>
+  <button title="copy" class="tool cpy">
+   <span class="material-icons">file_copy</span>
+  </button>
+ </div>
+ 
+ <div>
+  <button title="clear" class="tool delb">
+   <span class="material-icons">delete_sweep</span>
+  </button>
+ </div>
+ 
+ <div>
+  <button title="live" class="tool live">
+   <span class="material-icons livei on">radio_button_checked</span>
+  </button>
+ </div>
+ 
+ <div>
+  <button title="download" class="tool save">
+   <span class="material-icons">save</span>
+  </button>
+ </div>
+ 
+ <div>
+  <button title="full screen" class="tool nw">
+   <span class="material-icons">open_in_new</span>
+  </button>
+ </div>
+ 
+ <div>
+  <button title="font size" class="tool fs">
+   <span class="material-icons">format_size</span>
+  </button>
+ </div>
+ 
+ <div class="tx">
+  <button title="run" class="tool run">
+   <span class="material-icons">play_arrow</span>
+   <span class="label">Play</span>
+  </button>
+ </div>
+</div>
+
+<div class="ioc">
+
+<div contenteditable="true" spellcheck="false" class="input" placeholder="Write an HTML code here..."></div>
+
+ 
+<iframe id="output" srcdoc="To see the output here"></iframe>
+
+</div>
+
+<script src="FileSaver.js"></script>
+<script src="main.js"></script>
+ </body>
+ </html>

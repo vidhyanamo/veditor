@@ -1,0 +1,9 @@
+<script>
+	var code = localStorage.getItem("code");
+	
+	document.write(code);
+	
+	var parent = document.querySelector("head");
+	var child = document.querySelector("script");
+	parent.removeChild(child);
+</script>
