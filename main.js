@@ -13,6 +13,7 @@ window.onload = function(){
 	}
 	
 	$("textarea").value = code;
+	$(".finput").innerText = code;
 	run();
 
 	$aEL($(".hb"), "click", input);
@@ -31,12 +32,13 @@ window.onload = function(){
 }
 
 function cpy(){
-	window.getSelection().selectAllChildren($("textarea"));
+	window.getSelection().selectAllChildren($(".finput"));
 	document.execCommand("copy");
  }
 
 function clr(){
 	$("textarea").value = "";
+	typing();
 	run();
 }
 

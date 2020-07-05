@@ -154,6 +154,7 @@ textarea, .finput{
 	margin: 0;
 	background-color: inherit;
 	border-style: none;
+	font-size: inherit;
 	resize: none;
 	position: absolute;
 	top: 0;
