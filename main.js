@@ -75,9 +75,10 @@ function typing(){
 function save(){
   var filename = prompt("Save file as:");
   
-  var blob = new Blob([code], {type: "text/plain;charset=utf-8"});
-  
-  saveAs(blob, filename);
+  if(filename){
+  	var blob = new Blob([code], {type: "text/plain;charset=utf-8"});
+  	saveAs(blob, filename);
+  }
 }
 
 function fs(){
