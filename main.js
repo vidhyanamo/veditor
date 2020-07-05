@@ -1,50 +1,52 @@
-function $(e){return document.querySelector(e);}
-function $All(e){return document.querySelectorAll(e);}
+$ = (e) => document.querySelector(e);
+$All = (e) => document.querySelectorAll(e);
+$aEL = (e, eve, f) => e.addEventListener(eve, f);
+$cE = (e) => document.createElement(e);
 
 /*handle each and every event of editing*/
 
+var code = "", m = 0, lS;
+
 window.onload = function(){
 	if(localStorage.code){
-		$(".input").innerText = localStorage.code;
+		code = localStorage.code;
 	}
 	
+	$("textarea").value = code;
 	run();
+
+	$aEL($(".hb"), "click", input);
+	$aEL($(".ob"), "click", output);
 	
-	$(".cpy").addEventListener("click", cpy);
-	$(".delb").addEventListener("click", clr);
-	$(".live").addEventListener("click", nlive);
-	$(".save").addEventListener("click", save);
-	$(".nw").addEventListener("click", function(){
-		window.open('code.html');
-		});
-	$(".fs").addEventListener("click", fs);
-	$(".run").addEventListener("click", run);
-	$(".input").addEventListener("input", typing);
-	$(".input").addEventListener("change", typing);
+	$aEL($(".cpy"), "click", cpy);
+	$aEL($(".delb"), "click", clr);
+	$aEL($(".live"), "click", nlive);
+	$aEL($(".save"), "click", save);
+	$aEL($(".nw"), "click", () => window.open('code.html'));
+	$aEL($(".fs"), "click", fs);
+	$aEL($(".run"), "click", run);
+
+	$aEL($("textarea"), "input", typing);
+	$aEL($("textarea"), "change", typing);
 }
 
-var code, m = 0, lS;
-
 function cpy(){
-	var inp = $(".input");
-	
-	window.getSelection().selectAllChildren(inp);
-	
+	window.getSelection().selectAllChildren($("textarea"));
 	document.execCommand("copy");
  }
 
 function clr(){
-	$(".input").innerHTML = "";
+	$("textarea").value = "";
 	run();
 }
 
 function nlive(){
 	if($(".livei.on")){
-		$(".livei").classList = "material-icons livei";
+		$(".livei").classList.remove("on");
 		$(".livei").innerHTML = "radio_button_unchecked";
 	}
 	else{
-		$(".livei").classList = "material-icons livei on";
+		$(".livei").classList.add("on");
 		$(".livei").innerHTML = "radio_button_checked";
 		
 		typing();
@@ -52,55 +54,26 @@ function nlive(){
 }
 
 function run(){
-	var inpute = $(".input");
-	code = inpute.innerText;
-	
 	$("#output").srcdoc = code;
-	localStorage.code = code;
 }
 
 function typing(){
 	var live_status = $(".livei").innerHTML.slice(13);
 	
-	var code = $(".input").innerText;
+	code = $("textarea").value;
+	$(".finput").innerText = code;
 	
-	if(live_status == "checked")
+	if(live_status == "checked"){
 		run();
+	}
 	
-	localStorage.setItem("code", code);
-}
-function car(pos){
-	var inp = $(".input");
-              
-    // Creates range object 
-    var setpos = document.createRange(); 
-              
-    // Creates object for selection 
-    var set = window.getSelection();
-              
-    // Set start position of range 
-    setpos.setStart(inp.childNodes[0], pos);
-              
-    // Collapse range within its boundary points 
-    // Returns boolean
-    setpos.collapse(true); 
-              
-    // Remove all ranges set 
-    set.removeAllRanges(); 
-              
-    // Add range with respect to range object. 
-    set.addRange(setpos);
-              
-    // Set cursor on focus 
-    inp.focus();
+	localStorage.code = code;
 }
 
 function save(){
-  var text = $(".input").innerText;
+  var filename = prompt("Save file as:");
   
-  var filename = "code.html";
-  
-  var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
+  var blob = new Blob([code], {type: "text/plain;charset=utf-8"});
   
   saveAs(blob, filename);
 }

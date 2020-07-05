@@ -1,9 +1,7 @@
 <script>
-	var code = localStorage.getItem("code");
+	if(localStorage.code){
+		document.write(localStorage.code);
+	}
 	
-	document.write(code);
-	
-	var parent = document.querySelector("head");
-	var child = document.querySelector("script");
-	parent.removeChild(child);
+	document.querySelector("head").removeChild(document.querySelector("script"));
 </script>

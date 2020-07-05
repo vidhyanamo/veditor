@@ -83,9 +83,6 @@ header{
 .material-icons{
 	font-size: 22px;
 	line-height: 28px;
-	/*position: relative;
-	top: 10%;
-	transform: translate(0%, -10%);*/
 }
 
 .livei.on{
@@ -138,48 +135,29 @@ header{
 	counter-reset: line;
 }
 
+.input, textarea, .finput{
+	color: #22292a;
+	font-family: consolas;
+	overflow: auto;
+	line-height: 20px;
+	padding: 5px;
+}
+
 .input{
 	max-height: 100%;
-	color: #22292a;
-	margin: 0;
-	padding: 5px;
-	font-family: consolas;
-	resize: none;
-	overflow: scroll;
-	line-height: 20px;
+	position: relative;
 }
 
-.input div{
-	z-index: 1;
-}
-
-.ln{
-	display: inline-block;
-	width: 50px;
+textarea, .finput{
+	width: 100%;
 	height: 100%;
-	padding: 5px 0;
-	z-index: 1;
-	background-color: #ddd;
-	line-height: 20px;
-	vertical-align: top;
-}
-
-.ln div{
-	counter-increment: line;
-}
-
-.ln div::before{
-	content: counter(line);
-	display: inline-block;
-	color: #8a8a8a;
-	
-	width: 50px;
-	margin-right: 8px;
-	background-color: #ddd;
-	text-align: center;
-	font-family: consolas;
-	
-	text-indent: 0px;
+	margin: 0;
+	background-color: inherit;
+	border-style: none;
+	resize: none;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 #output{
@@ -192,21 +170,23 @@ header{
 		display: none;
 	}
 	
-.ioc{
-	max-height: calc(100% - 30px);
-	flex-direction: row;
-}
+	.ioc{
+		max-height: calc(100% - 30px);
+		flex-direction: row;
+	}
 
-.lni{
-	max-width: 50%;
-}
+	.lni{
+		max-width: 50%;
+	}
 
-.input, #output, .toolbar{
-	display: block;
-}
+	.input, #output, .toolbar{
+		display: block;
+	}
 
-.toolbar{
-	background-color: #e6e6e6;
+	.toolbar{
+		background-color: #e6e6e6;
+	}
+
 }
 
 @media only screen and (max-width: 400px){
