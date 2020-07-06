@@ -13,7 +13,9 @@ window.onload = function(){
 	}
 	
 	$("textarea").value = code;
-	$(".finput").innerText = code;
+
+	formatCode();
+
 	run();
 
 	$aEL($(".hb"), "click", input);
@@ -29,6 +31,8 @@ window.onload = function(){
 
 	$aEL($("textarea"), "input", typing);
 	$aEL($("textarea"), "change", typing);
+
+	$aEL(window, "resize", formatCode);
 }
 
 function cpy(){
@@ -63,13 +67,48 @@ function typing(){
 	var live_status = $(".livei").innerHTML.slice(13);
 	
 	code = $("textarea").value;
-	$(".finput").innerText = code;
+
+	formatCode();
 	
 	if(live_status == "checked"){
 		run();
 	}
 	
 	localStorage.code = code;
+}
+
+function lineNo(){
+	const pa = $(".lnColumn");
+	var lines = $All(".line");
+
+	pa.innerHTML = "";
+
+	for(let i of lines){
+		var lnN = $cE("div");
+		lnN.classList = "lnCounts";
+		lnN.style.height = i.scrollHeight + "px";
+		
+		pa.appendChild(lnN);
+	}
+}
+
+function formatCode(){
+	var fcode;
+	const finput = $(".finput");
+	var code = $("textarea").value;
+
+	fcode = code.split("\n");
+
+	finput.innerHTML = "";
+
+	for(let i of fcode){
+		var line = $cE("pre");
+		line.classList = "line";
+		line.innerText = i;
+		finput.appendChild(line);
+	}
+
+	lineNo();
 }
 
 function save(){
@@ -111,6 +150,7 @@ function fs(){
 }
 
 function output(){
+	$(".lnColumn").style.display = "none";
 	$(".input").style.display = "none";
 	$(".toolbar").style.display = "none";
 	$("#output").style.display = "block";
@@ -120,6 +160,7 @@ function output(){
 }
 
 function input(){
+	$(".lnColumn").style.display = "block";
 	$(".input").style.display = "block";
 	$(".toolbar").style.display = "block";
 	$("#output").style.display = "none";
