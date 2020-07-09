@@ -42,18 +42,17 @@ function cpy(){
 
 function clr(){
 	$("textarea").value = "";
-	typing();
-	run();
+	$(".finput").innerHTML = '<pre class="line"></pre>';
+	localStorage.code = "";
+	lineNo();
 }
 
 function nlive(){
-	if($(".livei.on")){
-		$(".livei").classList.remove("on");
-		$(".livei").innerHTML = "radio_button_unchecked";
+	if($(".live.active")){
+		$(".live").classList.remove("active");
 	}
 	else{
-		$(".livei").classList.add("on");
-		$(".livei").innerHTML = "radio_button_checked";
+		$(".live").classList.add("active");
 		
 		typing();
 	}
@@ -64,13 +63,13 @@ function run(){
 }
 
 function typing(){
-	var live_status = $(".livei").innerHTML.slice(13);
+	var live_status = $(".live.active");
 	
 	code = $("textarea").value;
 
 	formatCode();
 	
-	if(live_status == "checked"){
+	if(live_status){
 		run();
 	}
 	
@@ -87,6 +86,7 @@ function lineNo(){
 		var lnN = $cE("div");
 		lnN.classList = "lnCounts";
 		lnN.style.height = i.scrollHeight + "px";
+		lnN.style.lineHeight = i.scrollHeight + "px";
 		
 		pa.appendChild(lnN);
 	}
@@ -145,7 +145,10 @@ function fs(){
 	
 	if(fk.includes(size)) v = true;
 	
-	if(v) ele.style.fontSize = size;
+	if(v){
+		ele.style.fontSize = size;
+		lineNo();
+	}
 	else alert("invalid");
 }
 

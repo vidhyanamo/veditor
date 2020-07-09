@@ -49,35 +49,69 @@ header{
 	position:sticky;
 	top: 0px;
 	background-color: #d7d5d5;
-	padding: 0 4px;
+	padding: 2px 6px;
 	box-shadow: 0 -1px 5px -5px #333 inset;
-	user-select: none;
 }
 
 .toolbar div{
 	float: left;
-	width: 40px;
-	height: 100%;
 }
 
 .tool{
 	width: 30px;
-	height: 28px;
-	background-color:inherit;
-	color: #333;
+	height: 30px;
+	background-color: inherit;
+	background-repeat: no-repeat;
+	background-position: center;
 	border-style: none;
-	border-width: 0;
 	border-radius: 2px;
 	cursor: pointer;
 	padding: 0;
+	margin-right: 10px;
+	display: block;
+	float: left;
+}
+
+.cpy{
+	background-image: url("svg/copy.svg");
+	width: 20px;
+}
+
+.delb{
+	background-image: url("svg/clearAll.svg");
+	width: 24px;
+}
+
+.live{
+	background-image: url("svg/live.svg");
+	width: 50px;
+}
+
+.live.active{
+	background-image: url("svg/liveActive.svg");
+}
+
+.save{
+	background-image: url("svg/save.svg");
+	width: 24px;
+}
+
+.nw{
+	background-image: url("svg/fullScreen.svg");
+}
+
+.fs{
+	background-image: url("svg/fontSize.svg");
+	width: 20px;
+}
+
+.run{
+	background-image: url("svg/play.svg");
+	width: 22px;
 }
 
 .tool:active{
 	box-shadow : 0px 0px 2px 1px #979595 inset;
-}
-
-.tx{
-	width: 70px!important;
 }
 
 .material-icons{
@@ -87,23 +121,6 @@ header{
 
 .livei.on{
 	color: #2ecc72;
-}
-
-.label{
-	text-align: left;
-	display: inline-block;
-	font-size: 17px;
-	line-height: 28px;
-	flex: 1;
-}
-
-.tool.run{
-	width: 68px;
-	display: flex;
-}
-
-.run .material-icons{
-	width: 28px;
 }
 
 .ioc{
@@ -145,7 +162,7 @@ header{
 	color: #22292a;
 	font-family: consolas;
 	overflow: auto;
-	line-height: 20px;
+	line-height: inherit;
 	padding: 5px;
 }
 
@@ -195,10 +212,6 @@ textarea{
 		flex-direction: row;
 	}
 
-	.lni{
-		max-width: 50%;
-	}
-
 	.input, #output, .toolbar{
 		display: block;
 	}
@@ -207,14 +220,4 @@ textarea{
 		background-color: #e6e6e6;
 	}
 
-}
-
-@media only screen and (max-width: 400px){
-	.tool{
-		margin: 0;
-	}
-	
-	.toolbar button{
-		width: 32px;
-	}
 }

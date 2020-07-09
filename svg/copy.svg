@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+width="15" height="19"
+style="fill: none; corner-raduis: 1;">
+    <rect width="10" height="14" x="1" y="1" rx="3" ry="3"
+    style="stroke: black;" />
+
+    <rect width="10" height="14" x="3" y="3" rx="3" ry="3"
+    style="stroke-width: 1px; stroke: #d7d5d5;" />
+
+    <rect width="10" height="14" x="4" y="4" rx="3" ry="3"
+    style="fill: #d7d5d5; stroke-width: 1px; stroke: black;" />
+</svg>

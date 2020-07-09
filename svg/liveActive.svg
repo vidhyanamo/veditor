@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+width="49" height="20"
+style="stroke: black; fill: none;" >
+    
+    <rect width="47" height="18" x="1" y="1" rx="1" />
+
+    <circle r="2" cx="9" cy="10"
+    style="stroke: none; fill: #cc5151;" />
+
+    <text x="16" y="14"
+    style="
+    fill: black;
+    letter-spacing: 2px;
+    stroke: none;
+    font-size: 11px;
+    font-family: Comic Sans MS, sans-serif;
+    " >live</text>
+
+</svg>

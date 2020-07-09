@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+width="20" height="20"
+style="
+stroke: black;
+stroke-width: 1;
+fill: lightgreen;
+stroke-linejoin: bevel;" >
+    
+    <polygon points="1,1 19,10 1,18" />
+
+</svg>
+

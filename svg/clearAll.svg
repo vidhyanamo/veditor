@@ -1,0 +1,13 @@
+<svg version="1.1"
+xmlns="http://www.w3.org/2000/svg"
+width="21" height="12" 
+preserveAspectRation="none" 
+style="stroke: black; stroke-width: 1px; stroke-linecap: round;" >
+    
+    <polyline points="5,1 19,1" />
+    
+    <polyline points="3,6 17,6" />
+    
+    <polyline points="1,11 15,11" />
+
+</svg>
