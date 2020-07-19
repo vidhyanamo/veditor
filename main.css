@@ -195,7 +195,7 @@ textarea, .finput{
 }
 
 .line{
-	min-height: 20px;
+	min-height: 24px;
 	margin: 0;
 	padding: 0;
 	white-space: pre-wrap;
@@ -206,6 +206,7 @@ textarea, .finput{
 textarea{
 	color: #22292a1a;
 	line-height: 150%;
+	min-height: 100%;
 }
 
 .output{

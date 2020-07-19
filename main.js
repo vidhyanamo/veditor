@@ -99,12 +99,14 @@ function h(){
 	$(".input").style.height = h + "px";
 }
 
-function lH(){//incomplete method.
+function lH(){
 	const tA = $("textarea");
 	const lNC = $(".lnColumn");
 
 	var lH = getComputedStyle($(".line")).lineHeight;console.log("lH: "+ lH)
 	lNC.style.lineHeight = lH;
+
+	jsStyler(".line, .lnCounts", "min-height", lH);
 }
 
 function formatCode(){console.log("fC");
@@ -150,7 +152,7 @@ function fs(){
 	var fu = ["cm", "mm", "in", "px", "pt", "pc", "%", "em", "ex", "ch", "rem", "vw", "vh", "vmin", "vmax"];
 	
 	for(e of fu){
-		if(size.endsWith(e)){
+		if(size && size.endsWith(e)){
 			for(i=0;i<=9;i++){
 				if(size.startsWith(i)){
 					v = true;
@@ -188,4 +190,12 @@ function output(){
 	
 	$(".hb").classList.remove("visited");
 	$(".ob").classList.add("visited");
+}
+
+function jsStyler(e, property, value){
+	const jsStyleE = $(".jsStyle");
+
+	jsStyleE.innerHTML = "";
+
+	jsStyleE.innerHTML = e + "{" + property + ": " + value + "}\n\n";
 }
