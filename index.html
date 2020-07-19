@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" class="veditor">
 <head>
 <title>Veditor</title>
 
@@ -17,9 +17,9 @@
 
 <body>
 <header>
-	<button id="visited" class="nbutton hb">HTML</button>
+	<button class="nbutton hb visited">HTML</button>
    
-	<button  class="nbutton ob">Output</button>
+	<button  class="nbutton ob">OUTPUT</button>
 </header>
 
 <div class="toolbar">
@@ -41,14 +41,16 @@
 </div>
 
 <div class="ioc">
+  <div class="ic">
     <div class="lnColumn"></div>
 
     <div class="input">
         <pre class="finput"></pre>
         <textarea spellcheck="false"></textarea>
     </div>
+  </div>
     
-    <iframe id="output" srcdoc="To see the output here"></iframe>
+    <iframe class="output off" srcdoc="To see the output here"></iframe>
 
 </div>
 

@@ -3,20 +3,17 @@ $All = (e) => document.querySelectorAll(e);
 $aEL = (e, eve, f) => e.addEventListener(eve, f);
 $cE = (e) => document.createElement(e);
 
-/*handle each and every event of editing*/
-
 var code = "", m = 0, lS;
 
-window.onload = function(){
+window.onload = () => {
 	if(localStorage.code){
 		code = localStorage.code;
 	}
 	
 	$("textarea").value = code;
 
-	formatCode();
-
 	run();
+	formatCode();
 
 	$aEL($(".hb"), "click", input);
 	$aEL($(".ob"), "click", output);
@@ -59,7 +56,7 @@ function nlive(){
 }
 
 function run(){
-	$("#output").srcdoc = code;
+	$(".output").srcdoc = code;
 }
 
 function typing(){
@@ -86,29 +83,50 @@ function lineNo(){
 		var lnN = $cE("div");
 		lnN.classList = "lnCounts";
 		lnN.style.height = i.scrollHeight + "px";
-		lnN.style.lineHeight = i.scrollHeight + "px";
 		
 		pa.appendChild(lnN);
 	}
+
+	console.log("lines[0].scrollHeight: "+lines[0].scrollHeight);
 }
 
-function formatCode(){
+function h(){
+	var h = $("textarea").scrollHeight;console.log("textarea scrollHeight: "+h);
+
+	$("textarea").style.height = h + "px";
+	$(".finput").style.height = h + "px";
+	$(".lnColumn").style.height = h + "px";
+	$(".input").style.height = h + "px";
+}
+
+function lH(){//incomplete method.
+	const tA = $("textarea");
+	const lNC = $(".lnColumn");
+
+	var lH = getComputedStyle($(".line")).lineHeight;console.log("lH: "+ lH)
+	lNC.style.lineHeight = lH;
+}
+
+function formatCode(){console.log("fC");
 	var fcode;
 	const finput = $(".finput");
-	var code = $("textarea").value;
+	const tA = $("textarea");
+	var code = tA.value;
 
 	fcode = code.split("\n");
 
 	finput.innerHTML = "";
 
 	for(let i of fcode){
-		var line = $cE("pre");
+		var line = $cE("div");
 		line.classList = "line";
 		line.innerText = i;
 		finput.appendChild(line);
 	}
 
 	lineNo();
+	lH();
+	h();
 }
 
 function save(){
@@ -148,26 +166,26 @@ function fs(){
 	if(v){
 		ele.style.fontSize = size;
 		lineNo();
+		lH();
+		h();
 	}
 	else alert("invalid");
 }
 
-function output(){
-	$(".lnColumn").style.display = "none";
-	$(".input").style.display = "none";
-	$(".toolbar").style.display = "none";
-	$("#output").style.display = "block";
+function input(){
+	$(".ic").classList.remove("off");
+	$(".toolbar").classList.remove("off");
+	$(".output").classList.add("off");
 	
-	$(".hb").id = "";
-	$(".ob").id = "visited";
+	$(".hb").classList.add("visited");
+	$(".ob").classList.remove("visited");
 }
 
-function input(){
-	$(".lnColumn").style.display = "block";
-	$(".input").style.display = "block";
-	$(".toolbar").style.display = "block";
-	$("#output").style.display = "none";
+function output(){
+	$(".ic").classList.add("off");
+	$(".toolbar").classList.add("off");
+	$(".output").classList.remove("off");
 	
-	$(".hb").id = "visited";
-	$(".ob").id = "";
+	$(".hb").classList.remove("visited");
+	$(".ob").classList.add("visited");
 }
