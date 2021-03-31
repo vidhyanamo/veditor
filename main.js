@@ -91,7 +91,7 @@ function lineNo(){
 }
 
 function h(){
-	var h = $("textarea").scrollHeight;console.log("textarea scrollHeight: "+h);
+	var h = $("textarea").scrollHeight;
 
 	$("textarea").style.height = h + "px";
 	$(".finput").style.height = h + "px";
@@ -109,7 +109,7 @@ function lH(){
 	jsStyler(".line, .lnCounts", "min-height", lH);
 }
 
-function formatCode(){console.log("fC");
+function formatCode(){
 	var fcode;
 	const finput = $(".finput");
 	const tA = $("textarea");
@@ -170,8 +170,8 @@ function fs(){
 		lineNo();
 		lH();
 		h();
-	}
-	else alert("invalid");
+	} else 
+		alert("invalid");
 }
 
 function input(){
