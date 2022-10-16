@@ -1,3 +1,3 @@
 # Veditor
 
-Application preview: https://visheshcodes.github.io/veditor/
+Application preview: https://vidhyanamo.github.io/veditor/
