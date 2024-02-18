@@ -35,8 +35,14 @@ window.onload = () => {
 }
 
 function cpy() {
-	window.getSelection().selectAllChildren($(".finput"));
-	document.execCommand("copy");
+	document.querySelector('textarea').select();
+	document.querySelector('textarea').setSelectionRange(0, 99999); /* For mobile devices */
+
+	let result = document.execCommand("copy");
+
+	console.log('cpy -> result', result);
+
+	document.querySelector('textarea').blur();
 }
 
 function clr() {
