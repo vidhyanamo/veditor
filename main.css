@@ -44,21 +44,22 @@ header{
 }
 
 .toolbar{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+
 	min-height: 34px;
 	position: -webkit-sticky;
 	position:sticky;
 	top: 0px;
 	background-color: #d7d5d5;
 	padding: 3px 10px;
-	box-shadow: 0 -1px 7px -5px #333 inset;
-}
-
-.toolbar div{
-	float: left;
+	border-bottom: 2px solid #777;
 }
 
 .tool{
-	width: 30px;
+	min-width: 30px;
+	width: auto;
 	height: 50px;
 	background-color: inherit;
 	background-repeat: no-repeat;
@@ -70,6 +71,9 @@ header{
 	margin-right: 10px;
 	display: block;
 	float: left;
+
+	font-family: cursive;
+	font-size: larger;
 }
 
 .cpy{
@@ -83,12 +87,38 @@ header{
 }
 
 .live{
-	background-image: url("svg/live.svg");
-	width: 50px;
+	height: 25px;
+
+	letter-spacing: 2px;
+    stroke: none;
+
+    font-size: 11px;
+    font-family: Comic Sans MS, sans-serif;
+	font-weight: bold;
+
+	border: 2px solid #444;
+	border-radius: 10px;
+
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	gap: 5px;
 }
 
-.live.active{
-	background-image: url("svg/liveActive.svg");
+.icon {
+	display: inline-block;
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background-color: black;
+}
+
+.text {
+	flex: 1;
+}
+
+.live.active .icon {
+	background-color: #cc5151;
 }
 
 .save{
@@ -101,8 +131,12 @@ header{
 }
 
 .fs{
-	background-image: url("svg/fontSize.svg");
+	/* background-image: url("svg/fontSize.svg"); */
 	width: 20px;
+}
+
+.fs .smallT {
+	font-size: x-small;
 }
 
 .run{
@@ -124,17 +158,19 @@ header{
 }
 
 .ioc{
-	height: calc(100% - 70px);
 	width: 100%;
-	background-color: #e6e6e6;
 	display: flex;
+	flex-direction: column;
 	flex: 1;
 	overflow: hidden;
+	gap: 2px;
+	background-color: #aaa;
 }
 
 .ic{
 	height: 100%;
 	width: 100%;
+	background-color: #e6e6e6;
 	display: flex;
 	flex: 1;
 	overflow-x: hidden;
@@ -221,13 +257,8 @@ textarea{
 	header{
 		display: none;
 	}
-	
-	.ioc{
-		height: calc(100% - 30px);
-		flex-direction: row;
-	}
 
-	.input, .output, .toolbar{
+	.input, .output{
 		display: block;
 	}
 

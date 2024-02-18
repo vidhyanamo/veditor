@@ -1,12 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg"
-width="15" height="19"
+width="16" height="20"
 style="fill: none; corner-raduis: 1;">
     <rect width="10" height="14" x="1" y="1" rx="3" ry="3"
-    style="stroke: black;" />
+    style="stroke: black; stroke-width: 2px;" />
 
-    <rect width="10" height="14" x="3" y="3" rx="3" ry="3"
-    style="stroke-width: 1px; stroke: #d7d5d5;" />
-
-    <rect width="10" height="14" x="4" y="4" rx="3" ry="3"
-    style="fill: #d7d5d5; stroke-width: 1px; stroke: black;" />
+    <rect width="10" height="14" x="5" y="5" rx="3" ry="3"
+    style="fill: #d7d5d5; stroke-width: 2px; stroke: black;" />
 </svg>

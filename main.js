@@ -87,7 +87,7 @@ function lineNo(){
 		pa.appendChild(lnN);
 	}
 
-	console.log("lines[0].scrollHeight: "+lines[0].scrollHeight);
+	// console.log("lines[0].scrollHeight: "+lines[0].scrollHeight);
 }
 
 function h(){
@@ -103,7 +103,10 @@ function lH(){
 	const tA = $("textarea");
 	const lNC = $(".lnColumn");
 
-	var lH = getComputedStyle($(".line")).lineHeight;console.log("lH: "+ lH)
+	var lH = getComputedStyle($(".line")).lineHeight;
+	
+	// console.log("lH: "+ lH)
+
 	lNC.style.lineHeight = lH;
 
 	jsStyler(".line, .lnCounts", "min-height", lH);
@@ -146,6 +149,10 @@ function fs(){
 	var v;
 	
 	var size = prompt('Enter a css font-size value.\ne.g.: 12px, 2em, 100%, etc.', b);
+
+	if (!size) {
+		return false;
+	}
 	
 	var fk = ["medium","xx-small","x-small","small","large","x-large","xx-large","smaller","larger","length","initial","inherit"];
 	

@@ -7,13 +7,4 @@ style="stroke: black; fill: none;" >
     <circle r="2" cx="9" cy="10"
     style="stroke: none; fill: #cc5151;" />
 
-    <text x="16" y="14"
-    style="
-    fill: black;
-    letter-spacing: 2px;
-    stroke: none;
-    font-size: 11px;
-    font-family: Comic Sans MS, sans-serif;
-    " >live</text>
-
 </svg>
